@@ -1,42 +1,39 @@
 'use strict'
-const number = document.querySelector('.js_option');
-const myNumber = document.querySelector('.js_myNumber');
 const submit = document.querySelector('.js_submit');
+const userNumberSelect = document.querySelector('.js_optionSelect');
+const messageParagraph = document.querySelector ('.js_message');
+const userBetInput = document.querySelector('.js_userBet');
 const money = document.querySelector('.js_money');
 const result =document.querySelector('.js_result');
 
-const data = 
-{
-    1:'',
-    2:'',
-    3:'',
-    4:'',
-    5:'',
-    6:'',
-    };
-    
- 
+let balance = 50;
 
-   
 
-function getRandomNumber() {
-  return Math.ceil(Math.random() *6);
+function getRandomNumber(max) {
+  return Math.ceil(Math.random() *max)
+  }
+
+
+const handleClickSubmit = (event) => {
+  event.preventDefault();
+
+
+  const userNumber = parseInt(userNumberSelect.value);
+  const computerNumber = getRandomNumber(6);
+
+
+  if(userNumber===computerNumber){
+    messageParagraph.innerHTML = "Has ganado el doble de lo apostado";
+    const bet = parseInt(userBetInput.value);
+    balance = balance + (bet*2);
+    money.innerHTML = balance;
+ }
+  else{
+    messageParagraph.innerHTML = "Has perdido lo apostado";
+    const bet = parseInt(userBetInput.value);
+    balance = balance - bet;
+    money.innerHTML= balance;
+ }
 };
 
-
-
-function getRandomNumber(event){
-    const idInput = event.target.id;
-    if (idInput === myNumber){
-        result.innerHTML="Has ganado el doble de lo apostado"
-    }else (result.innerHTML="Has perdido lo apostado")
-    }
-
-function handlerClicksubmit(event){
-
-    return getRandomNumber;
-}
-
-submit.addEventListener('click', getRandomNumber);
-result.addEventListener('click',);
-submit.getRandomNumber('click');
+submit.addEventListener('click', handleClickSubmit);

@@ -5,25 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dados y Apuestas</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    <main>
+<body class="box1">
+    <main class=" box">
         <h1 class="title">Dados y Apuestas</h1>
         <h3 class="intro">Introduce aquí tu jugada:</h3>
-
-        <select class="select" name="select" id="select">
-            <option class="js_option" id="1">1</option>
-            <option class="js_option" id="2">2</option>
-            <option class="js_option" id="3">3</option>
-            <option class="js_option" id="4">4</option>
-            <option class="js_option" id="5">5</option>
-            <option class="js_option" id="6">6</option>
+        <form>
+        <select class="js_optionSelect" name="optionSelect" id="optionSelect">
+        <option hidden selected>Qué número apuestas del 1 al 6?</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
         </select>
-        <input  class=js_myNumber name="number" id="myNumber">
-        <input class=js_submit type="submit">
-        <h2>Vamos a jugar!</h2>
-        <p class=js_money id="money">Saldo: 50</p>
-        <h4 class="js_result" id="result"></h4>
+        <input  class=js_userBet name="userBet" type="text" id="userBet" placeholder="¿Cuánto apuestas?">
+        <input class="js_submit submit" value=Jugar type="submit">
+        </form>
+        <h2 class="js_message">Vamos a jugar!</h2>
+        <p>Saldo: <spam class="js_money">50</spam></p>
     </main>
     <script src="/js/index.js"> </script>
 </body>
